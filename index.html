@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SystemCss</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@sakun/system.css@0.1.0/dist/system.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+
+  <body>
+    <div class="window" style="width: 90rem;">
+      <div class="title-bar">
+        <button aria-label="Close" class="close"></button>
+        <h1 class="title">NotePad By B0AtY</h1>
+        <ul role="menu-bar" class="tab-header">
+          <li>
+            <a href="#"> <i class="fa-solid fa-grip-lines"></i></a>
+          </li>
+          <li>
+            <a href="#" role="button" onclick="zoomPage()"
+              ><i class="fa-regular fa-square"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="close" role="button" onclick="closeTab()">
+              <i class="fa-solid fa-x"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <!-- <div class="menu-bar"> -->
+      <ul role="menu-bar" class="menu-bar">
+        <li role="menu-item">
+          <a href="https://thiraphat-dev.github.io/backtobasic/" role="button"
+            ><i class="fa-solid fa-image-portrait"></i
+          ></a>
+        </li>
+        <li role="menu-item">
+          <a href="https://thiraphat.vercel.app/" role="button"
+            ><i class="fa-solid fa-toilets-portable"></i
+          ></a>
+        </li>
+        <li role="menu-item" class="divider">
+          <a href="https://www.facebook.com/thiraphat.boat/" role="button"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+        </li>
+
+        <li role="menu-item">
+          <a href="https://github.com/Thiraphat-DEV" role="button"
+            ><i class="fa-solid fa-laptop-code"></i
+          ></a>
+        </li>
+      </ul>
+      <!-- </div> -->
+
+      <div class="window-pane">
+        <ul role="menu-bar" class="tab-bar">
+          <li role="menu-item">
+            <div class="dropdown">
+              <a href="#" role="button" onclick="showList()" class="dropbtn">
+                File
+              </a>
+              <div class="content" id="dropdown-list">
+                <a href="#">
+                  New
+                </a>
+                <a href="#">
+                  New Window
+                </a>
+                <a href="#">
+                  Open
+                </a>
+                <a href="#">
+                  Save
+                </a>
+                <a href="#">
+                  Save As
+                </a>
+                <a href="#">
+                  Page Setup
+                </a>
+                <a href="#">
+                  Print
+                </a>
+                <a href="#">
+                  Exit
+                </a>
+              </div>
+            </div>
+          </li>
+          <li role="menu-item">
+            <a href="#" role="button">
+              Edit
+            </a>
+          </li>
+          <li role="menu-item">
+            <a href="#" role="button">
+              View
+            </a>
+          </li>
+          <li role="menu-item">
+            <a
+              href="https://support.microsoft.com/en-us/windows/help-in-notepad-4d68c388-2ff2-0e7f-b706-35fb2ab88a8c"
+              role="button"
+            >
+              Help
+            </a>
+          </li>
+        </ul>
+
+        <div>
+          <textarea
+            rows="30"
+            cols="120"
+            aria-label="Example text box"
+            type="text"
+            class="area"
+            placeholder="Enter Text"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // apply class show to dropdown
+      function showList() {
+        document.getElementById("dropdown-list").classList.toggle("show");
+      }
+
+      //show dropdown list
+      window.onclick = function (event) {
+        if (!event.target.matches(".dropbtn")) {
+          var dropdownList = document.querySelector(".content");
+
+          for (var i = 0; i < dropdownList.length; i++) {
+            var openDropdown = dropdownList[i];
+
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
+
+      function closeTab() {
+        window.close();
+      }
+
+      function zoomPage() {
+        window.parent.document.body.style.zoom = 2.0;
+      }
+    </script>
+
+    <!-- <script src="./src/index.js" defer></script> -->
+  </body>
+</html>
